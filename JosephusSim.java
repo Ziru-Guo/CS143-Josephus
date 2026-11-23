@@ -52,14 +52,28 @@ public class JosephusSim {
       }
    }
    
+   
+   // Counts to the elimination count, removes that person, and updates front and size
    public void eliminate() {
-      // count to the elimination count
-      
+      // find the node right before the person to be eliminated
+      PersonNode prev = front;
+      if (eliminationCount == 1) {
+         while (prev.next != front) {
+            prev = prev.next;
+         }
+      } else {
+         for (int i = 1; i < eliminationCount - 1; i++) {
+            prev = prev.next;
+         }
+      }
       // print who will be eliminated
-      
+      System.out.println(prev.next.name + " eliminated!\n");
       // eliminate the person and update "front" of the circle and size
-
+      prev.next = prev.next.next;
+      front = prev.next;
+      size--;
    }
+   
    
    // Returns true if only one person remains in the circle, false otherwise
    public boolean isOver() {
