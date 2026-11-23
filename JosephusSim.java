@@ -1,3 +1,8 @@
+// Ziru Guo
+// CS 143
+// Program #5: Josephus Problem
+// This class simulates the Josephus elimination game using a circularly linked list
+
 import java.util.*;
 import java.io.*;
 
