@@ -66,11 +66,22 @@ public class JosephusSim {
       return size == 1;
    }
    
+   // Returns the last survivor if the game is over, or the list of remaining survivors
    public String toString() {
-      // if there's only one person left, print them as the last survivor
+      if (isOver()) {
+         return front.name + " is the last survivor!";
+      }
       
-      // if many, print survivors (watch out for infinite loop since list is circular)
-
-      return "";
+      StringBuilder result = new StringBuilder("Remaining survivors: ");
+      PersonNode curr = front;
+      for (int i = 1; i <= size; i++) {
+         result.append(i).append("-").append(curr.name);
+         if (i < size) {
+            result.append(", ");
+         }
+         curr = curr.next;
+      }
+      return result.toString();
    }
+   
 }
